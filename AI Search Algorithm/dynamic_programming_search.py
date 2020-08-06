@@ -23,11 +23,11 @@ class DynamicProgrammingSearch(util.SearchAlgorithm):
             min_cost = float('inf')
             min_actions = None
             for action, successor, action_cost in problem.succ_and_cost(state):
-                future_actions, future_cost, future_num_visited = _FILL_IN_  # HINT: call self.future
+                future_actions, future_cost, future_num_visited = self.future(problem,successor)  # HINT: call self.future
                 num_visited += future_num_visited
-                cost = _FILL_IN_
+                cost = action_cost+future_cost
                 if cost < min_cost:
-                    min_actions = _FILL_IN_  # HINT: use LinkedList.construct
+                    min_actions = future_actions.construct(action)  # HINT: use LinkedList.construct
                     min_cost = cost
         if self.memory_use:
             self.future_dict[state] = min_actions, min_cost, num_visited

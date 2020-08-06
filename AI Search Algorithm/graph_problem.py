@@ -17,7 +17,7 @@ class GraphProblem(util.SearchProblem):
     def succ_and_cost(self, state):
         results = []
         for (prev_state, next_state), cost in distances.items():
-            if _FILL_IN_:
+            if prev_state == state:
                 action = state +'->'+next_state
                 results.append((action, next_state, cost))
         return results
@@ -43,11 +43,11 @@ if __name__ == '__main__':
     # bts = backtracking_search.BacktrackingSearch(verbose=3)
     # print(bts.solve(problem))
 
-    # import dynamic_programming_search
-    # dps = dynamic_programming_search.DynamicProgrammingSearch(verbose=1)
-    # # dps = dynamic_programming_search.DynamicProgrammingSearch(memory_use=False, verbose=1)
-    # print(dps.solve(problem))
+    import dynamic_programming_search
+    dps = dynamic_programming_search.DynamicProgrammingSearch(verbose=1)
+    # dps = dynamic_programming_search.DynamicProgrammingSearch(memory_use=False, verbose=1)
+    print(dps.solve(problem))
 
-    import uniform_cost_search
-    ucs = uniform_cost_search.UniformCostSearch(verbose=3)
-    print(ucs.solve(problem))
+    # import uniform_cost_search
+    # ucs = uniform_cost_search.UniformCostSearch(verbose=3)
+    # print(ucs.solve(problem))

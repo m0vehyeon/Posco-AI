@@ -1,6 +1,6 @@
 import util
 
-_FILL_IN_ = None
+
 
 
 class TransportationProblem(util.SearchProblem):
@@ -18,16 +18,16 @@ class TransportationProblem(util.SearchProblem):
         
         # Walk action
         if (state + 1) <= self.end_state:
-            next_state = _FILL_IN_
+            next_state = state+1
             action = 'Walk'
-            cost = _FILL_IN_
+            cost = 1
             results.append((action, next_state, cost))
             
         # Tram action
         if (2 * state) <= self.end_state:
-            next_state = _FILL_IN_
+            next_state = state*2
             action = 'Tram'
-            cost = _FILL_IN_
+            cost = 2
             results.append((action, next_state, cost))
             
         return results
@@ -36,15 +36,15 @@ class TransportationProblem(util.SearchProblem):
 if __name__ == '__main__':
     problem = TransportationProblem(7)
 
-    # import backtracking_search
-    # bts = backtracking_search.BacktrackingSearch(verbose=3)
-    # print(bts.solve(problem))
+    import backtracking_search
+    bts = backtracking_search.BacktrackingSearch(verbose=3)
+    print(bts.solve(problem))
 
     # import dynamic_programming_search
     # dps = dynamic_programming_search.DynamicProgrammingSearch(verbose=1)
     # # dps = dynamic_programming_search.DynamicProgrammingSearch(memory_use=False, verbose=1)
     # print(dps.solve(problem))
 
-    import uniform_cost_search
-    ucs = uniform_cost_search.UniformCostSearch(verbose=3)
-    print(ucs.solve(problem))
+    # import uniform_cost_search
+    # ucs = uniform_cost_search.UniformCostSearch(verbose=3)
+    # print(ucs.solve(problem))

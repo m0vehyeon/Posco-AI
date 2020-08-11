@@ -23,7 +23,7 @@ class VowelInsertionProblem(util.SearchProblem):
             cost = self.bigramCost(prev_word, fill)
             yield fill, next_state, cost  # return action, state, cost
 
-
+9
 if __name__ == '__main__':    
     unigramCost, bigramCost = wordsegUtil.makeLanguageModels('leo-will.txt')
     possibleFills = wordsegUtil.makeInverseRemovalDictionary('leo-will.txt', 'aeiou')
